@@ -50,47 +50,47 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
             switch (channelUID.getIdWithoutGroup()) {
                 case CHANNEL_AUX1_SWITCH:
                     updateState(CHANNEL_AUX1_SWITCH,
-                            (lastLEDStatus.getAux1().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux1().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX2_SWITCH:
                     updateState(CHANNEL_AUX2_SWITCH,
-                            (lastLEDStatus.getAux2().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux2().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX3_SWITCH:
                     updateState(CHANNEL_AUX3_SWITCH,
-                            (lastLEDStatus.getAux3().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux3().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX4_SWITCH:
                     updateState(CHANNEL_AUX4_SWITCH,
-                            (lastLEDStatus.getAux4().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux4().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX5_SWITCH:
                     updateState(CHANNEL_AUX5_SWITCH,
-                            (lastLEDStatus.getAux5().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux5().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX6_SWITCH:
                     updateState(CHANNEL_AUX6_SWITCH,
-                            (lastLEDStatus.getAux6().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux6().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AUX7_SWITCH:
                     updateState(CHANNEL_AUX7_SWITCH,
-                            (lastLEDStatus.getAux7().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getAux7().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_SPA_SWITCH:
                     updateState(CHANNEL_SPA_SWITCH,
-                            (lastLEDStatus.getSpa().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getSpa().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_PUMP_SWITCH:
                     updateState(CHANNEL_PUMP_SWITCH,
-                            (lastLEDStatus.getPump().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getPump().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_POOL_HEATER:
                     updateState(CHANNEL_POOL_HEATER,
-                            (lastLEDStatus.getPool_heater().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getPool_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_SPA_HEATER:
                     updateState(CHANNEL_SPA_HEATER,
-                            (lastLEDStatus.getSpa_heater().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                            (lastLEDStatus.getSpa_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
                 case CHANNEL_AIR_TEMPERATURE:
                     updateState(CHANNEL_AIR_TEMPERATURE, new DecimalType(lastStatus.getAir_temp()));
@@ -172,49 +172,49 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
     @Override
     public void aqualinkLEDStatusChanged(AqualinkLEDStatus aqualinkLEDStatus) {
         if (!aqualinkLEDStatus.getAux1().equals(lastLEDStatus.getAux1())) {
-            updateState(CHANNEL_AUX1_SWITCH, (aqualinkLEDStatus.getAux1().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX1_SWITCH, (aqualinkLEDStatus.getAux1().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux1(aqualinkLEDStatus.getAux1());
         }
         if (!aqualinkLEDStatus.getAux2().equals(lastLEDStatus.getAux2())) {
-            updateState(CHANNEL_AUX2_SWITCH, (aqualinkLEDStatus.getAux2().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX2_SWITCH, (aqualinkLEDStatus.getAux2().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux2(aqualinkLEDStatus.getAux2());
         }
         if (!aqualinkLEDStatus.getAux3().equals(lastLEDStatus.getAux3())) {
-            updateState(CHANNEL_AUX3_SWITCH, (aqualinkLEDStatus.getAux3().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX3_SWITCH, (aqualinkLEDStatus.getAux3().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux3(aqualinkLEDStatus.getAux3());
         }
         if (!aqualinkLEDStatus.getAux4().equals(lastLEDStatus.getAux4())) {
-            updateState(CHANNEL_AUX4_SWITCH, (aqualinkLEDStatus.getAux4().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX4_SWITCH, (aqualinkLEDStatus.getAux4().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux1(aqualinkLEDStatus.getAux4());
         }
         if (!aqualinkLEDStatus.getAux5().equals(lastLEDStatus.getAux5())) {
-            updateState(CHANNEL_AUX5_SWITCH, (aqualinkLEDStatus.getAux5().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX5_SWITCH, (aqualinkLEDStatus.getAux5().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux5(aqualinkLEDStatus.getAux5());
         }
         if (!aqualinkLEDStatus.getAux6().equals(lastLEDStatus.getAux6())) {
-            updateState(CHANNEL_AUX6_SWITCH, (aqualinkLEDStatus.getAux6().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX6_SWITCH, (aqualinkLEDStatus.getAux6().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux6(aqualinkLEDStatus.getAux6());
         }
         if (!aqualinkLEDStatus.getAux7().equals(lastLEDStatus.getAux7())) {
-            updateState(CHANNEL_AUX7_SWITCH, (aqualinkLEDStatus.getAux7().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_AUX7_SWITCH, (aqualinkLEDStatus.getAux7().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setAux7(aqualinkLEDStatus.getAux7());
         }
         if (!aqualinkLEDStatus.getPump().equals(lastLEDStatus.getPump())) {
-            updateState(CHANNEL_PUMP_SWITCH, (aqualinkLEDStatus.getPump().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_PUMP_SWITCH, (aqualinkLEDStatus.getPump().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setPump(aqualinkLEDStatus.getPump());
         }
         if (!aqualinkLEDStatus.getSpa().equals(lastLEDStatus.getSpa())) {
-            updateState(CHANNEL_SPA_SWITCH, (aqualinkLEDStatus.getSpa().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+            updateState(CHANNEL_SPA_SWITCH, (aqualinkLEDStatus.getSpa().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setSpa(aqualinkLEDStatus.getSpa());
         }
         if (!aqualinkLEDStatus.getPool_heater().equals(lastLEDStatus.getPool_heater())) {
             updateState(CHANNEL_POOL_HEATER,
-                    (aqualinkLEDStatus.getPool_heater().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                    (aqualinkLEDStatus.getPool_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setPool_heater(aqualinkLEDStatus.getPool_heater());
         }
         if (!aqualinkLEDStatus.getSpa_heater().equals(lastLEDStatus.getSpa_heater())) {
             updateState(CHANNEL_SPA_HEATER,
-                    (aqualinkLEDStatus.getSpa_heater().equals("ON")) ? OnOffType.ON : OnOffType.OFF);
+                    (aqualinkLEDStatus.getSpa_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setSpa_heater(aqualinkLEDStatus.getSpa_heater());
         }
     }
