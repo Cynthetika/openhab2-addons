@@ -70,11 +70,20 @@ public class AqualinkWebSocketClient {
 
     }
 
+    public void disconnect() {
+        try {
+            if (this.client != null) {
+                this.client.stop();
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
 
-   private void sendCommand(String cmd) {
+    private void sendCommand(String cmd) {
         try {
             Future<Void> fut;
-            fut = session.getRemote().sendStringByFuture("{\"command\":\""+cmd+"\"}");
+            fut = session.getRemote().sendStringByFuture("{\"command\":\"" + cmd + "\"}");
             fut.get(2, TimeUnit.SECONDS); // wait for send to complete.
         } catch (Throwable t) {
             t.printStackTrace();
@@ -82,51 +91,58 @@ public class AqualinkWebSocketClient {
     }
 
     public void togglePoolSwitchState() {
-	sendCommand("KEY_PUMP");
+        sendCommand("KEY_PUMP");
     }
 
     public void toggleSpaSwitchState() {
-	sendCommand("KEY_SPA");
+        sendCommand("KEY_SPA");
     }
 
     public void toggleAux1State() {
-	sendCommand("KEY_AUX1");
+        sendCommand("KEY_AUX1");
     }
 
     public void toggleAux2State() {
-	sendCommand("KEY_AUX2");
+        sendCommand("KEY_AUX2");
     }
 
     public void toggleAux3State() {
-	sendCommand("KEY_AUX3");
+        sendCommand("KEY_AUX3");
     }
 
     public void toggleAux4State() {
-	sendCommand("KEY_AUX4");
+        sendCommand("KEY_AUX4");
     }
+
     public void toggleAux5State() {
-	sendCommand("KEY_AUX5");
+        sendCommand("KEY_AUX5");
     }
 
     public void toggleAux6State() {
-	sendCommand("KEY_AUX6");
+        sendCommand("KEY_AUX6");
     }
 
     public void toggleAux7State() {
-	sendCommand("KEY_AUX7");
-    }
-    public void togglePoolHeaterState() {
-	sendCommand("KEY_POOL_HTR");
-    }
-    public void toggleSpaHeaterState() {
-	sendCommand("KEY_SPA_HTR");
+        sendCommand("KEY_AUX7");
     }
 
+    public void togglePoolHeaterState() {
+        sendCommand("KEY_POOL_HTR");
+    }
+
+    public void toggleSpaHeaterState() {
+        sendCommand("KEY_SPA_HTR");
+    }
+
+    public void toggleSolarHeaterState() {
+        sendCommand("KEY_HTR_SOLAR");
+    }
 
     @OnWebSocketClose
     public void onClose(int statusCode, String reason) {
         System.out.printf("Connection closed: %d - %s%n", statusCode, reason);
         this.session = null;
+        myListener.aqualinkConnectionDropped(reason);
         // this.closeLatch.countDown(); // trigger latch
     }
 
@@ -134,6 +150,7 @@ public class AqualinkWebSocketClient {
     public void onConnect(Session session) {
         System.out.printf("Got connect: %s%n", session);
         this.session = session;
+        myListener.aqualinkConnectionEstablished();
         try {
             Future<Void> fut;
             fut = session.getRemote().sendStringByFuture("GET_AUX_LABELS");
@@ -150,23 +167,23 @@ public class AqualinkWebSocketClient {
         if (msg.equals(lastMessage)) {
             // don't process same message
         } else {
-	   try{
-            lastMessage = msg;
-            JsonObject json = jsonParser.parse(msg).getAsJsonObject();
-            if (json.get("type").getAsString().equals("status")) {
-		logger.debug("Posted status message "+json);
-                myListener.aqualinkStatusChanged(gson.fromJson(json, AqualinkStatus.class));
+            try {
+                lastMessage = msg;
+                JsonObject json = jsonParser.parse(msg).getAsJsonObject();
+                if (json.get("type").getAsString().equals("status")) {
+                    logger.debug("Posted status message " + json);
+                    myListener.aqualinkStatusChanged(gson.fromJson(json, AqualinkStatus.class));
 
-                JsonObject ledsJson = json.get("leds").getAsJsonObject();
-                if (!ledsJson.equals(lastLEDStatusMessage)) {
-                    lastLEDStatusMessage = ledsJson;
-                    myListener.aqualinkLEDStatusChanged(gson.fromJson(ledsJson, AqualinkLEDStatus.class));
+                    JsonObject ledsJson = json.get("leds").getAsJsonObject();
+                    if (!ledsJson.equals(lastLEDStatusMessage)) {
+                        lastLEDStatusMessage = ledsJson;
+                        myListener.aqualinkLEDStatusChanged(gson.fromJson(ledsJson, AqualinkLEDStatus.class));
+                    }
+
                 }
-
+            } catch (Exception e) {
+                logger.error("Dropping Error with message " + msg);
             }
-	   }catch(Exception e){
-		logger.error("Dropping Error with message "+msg);
-	   }
         }
 
     }

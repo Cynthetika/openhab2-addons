@@ -9,77 +9,107 @@
         <description>Aqualink Pool controls</description>
 
         <channels>
-		<channel typeId="pumpswitch" id="pumpswitch"></channel>
-		<channel typeId="poolheater" id="poolheater"></channel>
-        <channel typeId="pooltemperature" id="pooltemperature"></channel>
-        <channel typeId="spaswitch" id="spaswitch"></channel>
-        <channel typeId="spaheater" id="spaheater"></channel>
-        <channel typeId="spatemperature" id="spatemperature"></channel>
-        <channel typeId="aux1switch" id="aux1switch"></channel>
-        <channel typeId="aux2switch" id="aux2switch"></channel>
-        <channel typeId="aux3switch" id="aux3switch"></channel>
-        <channel typeId="aux4switch" id="aux4switch"></channel>
-        <channel typeId="aux5switch" id="aux5switch"></channel>
-        <channel typeId="aux6switch" id="aux6switch"></channel>
-        <channel typeId="aux7switch" id="aux7switch"></channel>
-        <channel typeId="airtemperature" id="airtemperature"></channel>
+		<channel typeId="pump" id="pump"></channel>
+		<channel typeId="pool_heater" id="pool_heater"></channel>
+        <channel typeId="pool_temp" id="pool_temp"></channel>
+        <channel typeId="spa" id="spa"></channel>
+        <channel typeId="spa_heater" id="spa_heater"></channel>
+        <channel typeId="solar_heater" id="solar_heater"></channel>
+        <channel typeId="spa_temp" id="spa_temp"></channel>
+        <channel typeId="spa_htr_set_pnt" id="spa_htr_set_pnt"></channel>
+        <channel typeId="pool_htr_set_pnt" id="pool_htr_set_pnt"></channel>
+        <channel typeId="freeze_protection" id="freeze_protection"></channel>
+        <channel typeId="frz_protect_set_pnt" id="frz_protect_set_pnt"></channel>
+        
+        <channel typeId="aux1" id="aux1"></channel>
+        <channel typeId="aux2" id="aux2"></channel>
+        <channel typeId="aux3" id="aux3"></channel>
+        <channel typeId="aux4" id="aux4"></channel>
+        <channel typeId="aux5" id="aux5"></channel>
+        <channel typeId="aux6" id="aux6"></channel>
+        <channel typeId="aux7" id="aux7"></channel>
+        <channel typeId="air_temp" id="air_temp"></channel>
         </channels>
     </thing-type>
-    <channel-type id="aux1switch">
+    <channel-type id="aux1">
     	<item-type>Switch</item-type>
     	<label>Aux1 Switch</label>
     </channel-type>
-    <channel-type id="aux2switch">
+    <channel-type id="aux2">
     	<item-type>Switch</item-type>
     	<label>Aux2 Switch</label>
     </channel-type>
-    <channel-type id="aux3switch">
+    <channel-type id="aux3">
     	<item-type>Switch</item-type>
     	<label>Aux3 Switch</label>
     </channel-type>
-    <channel-type id="aux4switch">
+    <channel-type id="aux4">
     	<item-type>Switch</item-type>
     	<label>Aux4 Switch</label>
     </channel-type>
-    <channel-type id="aux5switch">
+    <channel-type id="aux5">
     	<item-type>Switch</item-type>
     	<label>Aux5 Switch</label>
     </channel-type>
-    <channel-type id="aux6switch">
+    <channel-type id="aux6">
     	<item-type>Switch</item-type>
     	<label>Aux6 Switch</label>
     </channel-type>
-    <channel-type id="aux7switch">
+    <channel-type id="aux7">
     	<item-type>Switch</item-type>
     	<label>Aux7 Switch</label>
     </channel-type>
-    <channel-type id="pumpswitch">
+    <channel-type id="pump">
     	<item-type>Switch</item-type>
     	<label>Pool Pump</label>
     </channel-type>
-    <channel-type id="spaswitch">
+    <channel-type id="spa">
     	<item-type>Switch</item-type>
     	<label>Spa Mode</label>
     </channel-type>
-    <channel-type id="poolheater">
+    <channel-type id="pool_heater">
     	<item-type>Switch</item-type>
     	<label>Pool Heater</label>
     </channel-type>
-    <channel-type id="spaheater">
+    <channel-type id="spa_heater">
     	<item-type>Switch</item-type>
     	<label>Spa Heater</label>
     </channel-type>
-    <channel-type id="pooltemperature">
+    
+    <channel-type id="freeze_protection">
+        <item-type>Switch</item-type>
+        <label>Freeze Protection</label>
+    </channel-type>
+    
+    <channel-type id="frz_protect_set_pnt">
+        <item-type>Number</item-type>
+        <label>Freeze Protection Temperature</label>
+        <category>Temperature</category>
+    </channel-type>        
+   <channel-type id="pool_htr_set_pnt">
+        <item-type>Number</item-type>
+        <label>Pool Heater Set Point Temperature</label>
+        <category>Temperature</category>
+    </channel-type>
+       
+    <channel-type id="pool_temp">
     	<item-type>Number</item-type>
     	<label>Pool Temperature</label>
     	<category>Temperature</category>
     </channel-type>
-    <channel-type id="spatemperature">
+    
+   <channel-type id="spa_htr_set_pnt">
+        <item-type>Number</item-type>
+        <label>Spa Heater Set Point Temperature</label>
+        <category>Temperature</category>
+    </channel-type>
+        
+    <channel-type id="spa_temp">
     	<item-type>Number</item-type>
     	<label>Spa Temperature</label>
     	<category>Temperature</category>
     </channel-type>
-    <channel-type id="airtemperature">
+    <channel-type id="air_temp">
     	<item-type>Number</item-type>
     	<label>Air Temperature</label>
     	<category>Temperature</category>

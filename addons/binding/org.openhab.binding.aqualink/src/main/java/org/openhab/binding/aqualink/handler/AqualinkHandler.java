@@ -84,6 +84,15 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
                     updateState(CHANNEL_PUMP_SWITCH,
                             (lastLEDStatus.getPump().equals("on")) ? OnOffType.ON : OnOffType.OFF);
                     break;
+                case CHANNEL_SOLAR_HEATER:
+                    updateState(CHANNEL_SOLAR_HEATER,
+                            (lastLEDStatus.getSolar_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
+                    break;
+                case CHANNEL_FREEZE_PROTECTION_FLAG:
+                    updateState(CHANNEL_FREEZE_PROTECTION_FLAG,
+                            (lastStatus.getFreeze_protection().equals("on")) ? OnOffType.ON : OnOffType.OFF);
+                    break;
+
                 case CHANNEL_POOL_HEATER:
                     updateState(CHANNEL_POOL_HEATER,
                             (lastLEDStatus.getPool_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
@@ -101,6 +110,17 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
                 case CHANNEL_SPA_TEMPERATURE:
                     updateState(CHANNEL_SPA_TEMPERATURE, new DecimalType(lastStatus.getSpa_temp()));
                     break;
+                case CHANNEL_FREEZE_PROTECT_SET_POINT:
+                    updateState(CHANNEL_FREEZE_PROTECT_SET_POINT, new DecimalType(lastStatus.getFrz_protect_set_pnt()));
+                    break;
+
+                case CHANNEL_POOL_HEATER_SET_POINT:
+                    updateState(CHANNEL_POOL_HEATER_SET_POINT, new DecimalType(lastStatus.getPool_htr_set_pnt()));
+                    break;
+                case CHANNEL_SPA_HEATER_SET_POINT:
+                    updateState(CHANNEL_SPA_HEATER_SET_POINT, new DecimalType(lastStatus.getSpa_htr_set_pnt()));
+                    break;
+
             }
         } else {
             switch (channelUID.getIdWithoutGroup()) {
@@ -137,6 +157,10 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
                 case CHANNEL_SPA_HEATER:
                     myClient.toggleSpaHeaterState();
                     break;
+                case CHANNEL_SOLAR_HEATER:
+                    myClient.toggleSolarHeaterState();
+                    break;
+
             }
         }
     }
@@ -146,10 +170,18 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
         try {
             myClient.connect();
             logger.info("Myclient connected successfully");
-            updateStatus(ThingStatus.ONLINE);
         } catch (Exception e) {
             e.printStackTrace();
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR, e.getMessage());
+        }
+    }
+
+    @Override
+    public void dispose() {
+        try {
+            myClient.disconnect();
+        } catch (Exception e) {
+
         }
     }
 
@@ -167,6 +199,27 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
             updateState(CHANNEL_SPA_TEMPERATURE, new DecimalType(aqualinkStatus.getSpa_temp()));
             lastStatus.setSpa_temp(aqualinkStatus.getSpa_temp());
         }
+        if (!aqualinkStatus.getFrz_protect_set_pnt().equals(lastStatus.getFrz_protect_set_pnt())) {
+            updateState(CHANNEL_FREEZE_PROTECT_SET_POINT, new DecimalType(aqualinkStatus.getFrz_protect_set_pnt()));
+            lastStatus.setFrz_protect_set_pnt(aqualinkStatus.getFrz_protect_set_pnt());
+        }
+        if (!aqualinkStatus.getPool_htr_set_pnt().equals(lastStatus.getPool_htr_set_pnt())) {
+            updateState(CHANNEL_POOL_HEATER_SET_POINT, new DecimalType(aqualinkStatus.getPool_htr_set_pnt()));
+            lastStatus.setPool_htr_set_pnt(aqualinkStatus.getPool_htr_set_pnt());
+        }
+
+        if (!aqualinkStatus.getSpa_htr_set_pnt().equals(lastStatus.getSpa_htr_set_pnt())) {
+            updateState(CHANNEL_SPA_HEATER_SET_POINT, new DecimalType(aqualinkStatus.getSpa_htr_set_pnt()));
+            lastStatus.setSpa_htr_set_pnt(aqualinkStatus.getSpa_htr_set_pnt());
+        }
+
+        if (!aqualinkStatus.getFreeze_protection().equals(lastStatus.getFreeze_protection())) {
+            updateState(CHANNEL_FREEZE_PROTECTION_FLAG,
+                    (aqualinkStatus.getFreeze_protection().equals("on")) ? OnOffType.ON : OnOffType.OFF);
+            lastStatus.setFreeze_protection(aqualinkStatus.getFreeze_protection());
+        }
+
+        updateStatus(ThingStatus.ONLINE);
     }
 
     @Override
@@ -217,5 +270,23 @@ public class AqualinkHandler extends BaseThingHandler implements AqualinkStatusL
                     (aqualinkLEDStatus.getSpa_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
             lastLEDStatus.setSpa_heater(aqualinkLEDStatus.getSpa_heater());
         }
+        if (!aqualinkLEDStatus.getSolar_heater().equals(lastLEDStatus.getSolar_heater())) {
+            updateState(CHANNEL_SOLAR_HEATER,
+                    (aqualinkLEDStatus.getSolar_heater().equals("on")) ? OnOffType.ON : OnOffType.OFF);
+            lastLEDStatus.setSolar_heater(aqualinkLEDStatus.getSolar_heater());
+        }
+        updateStatus(ThingStatus.ONLINE);
+    }
+
+    @Override
+    public void aqualinkConnectionDropped(String error) {
+        updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR, error);
+
+    }
+
+    @Override
+    public void aqualinkConnectionEstablished() {
+        updateStatus(ThingStatus.ONLINE);
+
     }
 }
