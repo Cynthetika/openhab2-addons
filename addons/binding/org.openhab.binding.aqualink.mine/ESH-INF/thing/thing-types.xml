@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="aqualink"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+        xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    <thing-type id="pool">
+        <label>Aqualink Pool Controls</label>
+        <description>Aqualink Pool controls</description>
+
+        <channels>
+		<channel typeId="pumpswitch" id="pumpswitch"></channel>
+		<channel typeId="poolheater" id="poolheater"></channel>
+        	<channel typeId="pooltemperature" id="pooltemperature"></channel>
+        </channels>
+    </thing-type>
+    <thing-type id="spa">
+        <label>Aqualink spa Controls</label>
+        <description>Aqualink spa controls</description>
+        <channels>
+		<channel typeId="spaswitch" id="spaswitch"></channel>
+		<channel typeId="spaheater" id="spaheater"></channel>
+        	<channel typeId="spatemperature" id="spatemperature"></channel>
+        </channels>
+    </thing-type>
+    <thing-type id="others">
+        <label>Aqualink Controls</label>
+        <description>Aqualink controls</description>
+
+        <channels>
+		<channel typeId="aux1switch" id="aux1switch"></channel>
+		<channel typeId="aux2switch" id="aux2switch"></channel>
+		<channel typeId="aux3switch" id="aux3switch"></channel>
+		<channel typeId="aux4switch" id="aux4switch"></channel>
+		<channel typeId="aux5switch" id="aux5switch"></channel>
+		<channel typeId="aux6switch" id="aux6switch"></channel>
+		<channel typeId="aux7switch" id="aux7switch"></channel>
+        	<channel typeId="airtemperature" id="airtemperature"></channel>
+        </channels>
+    </thing-type>
+
+    <channel-type id="aux1switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux1 Switch</label>
+    </channel-type>
+    <channel-type id="aux2switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux2 Switch</label>
+    </channel-type>
+    <channel-type id="aux3switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux3 Switch</label>
+    </channel-type>
+    <channel-type id="aux4switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux4 Switch</label>
+    </channel-type>
+    <channel-type id="aux5switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux5 Switch</label>
+    </channel-type>
+    <channel-type id="aux6switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux6 Switch</label>
+    </channel-type>
+    <channel-type id="aux7switch">
+    	<item-type>Switch</item-type>
+    	<label>Aux7 Switch</label>
+    </channel-type>
+    <channel-type id="pumpswitch">
+    	<item-type>Switch</item-type>
+    	<label>Pool Pump</label>
+    </channel-type>
+    <channel-type id="spaswitch">
+    	<item-type>Switch</item-type>
+    	<label>Spa Mode</label>
+    </channel-type>
+    <channel-type id="poolheater">
+    	<item-type>Switch</item-type>
+    	<label>Pool Heater</label>
+    </channel-type>
+    <channel-type id="spaheater">
+    	<item-type>Switch</item-type>
+    	<label>Spa Heater</label>
+    </channel-type>
+    <channel-type id="pooltemperature">
+    	<item-type>Number</item-type>
+    	<label>Pool Temperature</label>
+    	<category>Temperature</category>
+    </channel-type>
+    <channel-type id="spatemperature">
+    	<item-type>Number</item-type>
+    	<label>Spa Temperature</label>
+    	<category>Temperature</category>
+    </channel-type>
+    <channel-type id="airtemperature">
+    	<item-type>Number</item-type>
+    	<label>Air Temperature</label>
+    	<category>Temperature</category>
+    </channel-type>
+
+</thing:thing-descriptions>

@@ -75,6 +75,11 @@
     	<item-type>Switch</item-type>
     	<label>Spa Heater</label>
     </channel-type>
+
+    <channel-type id="solar_heater">
+    	<item-type>Switch</item-type>
+    	<label>Solar Heater</label>
+    </channel-type>
     
     <channel-type id="freeze_protection">
         <item-type>Switch</item-type>

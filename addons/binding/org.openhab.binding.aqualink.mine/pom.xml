@@ -20,13 +20,13 @@
   	<dependency>
   		<groupId>org.eclipse.jetty.websocket</groupId>
   		<artifactId>websocket-client</artifactId>
-  		<version>9.3.8.v20160314</version>
+  		<version>9.2.12.v20150709</version>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
   		<groupId>org.eclipse.jetty.websocket</groupId>
   		<artifactId>websocket-api</artifactId>
-  		<version>9.3.8.v20160314</version>
+  		<version>9.2.12.v20150709</version>
   	</dependency>
   </dependencies>
 </project>

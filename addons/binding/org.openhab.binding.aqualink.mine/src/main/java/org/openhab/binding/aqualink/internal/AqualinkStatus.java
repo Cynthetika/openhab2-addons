@@ -88,7 +88,7 @@ public class AqualinkStatus {
     }
 
     public String getPool_htr_set_pnt() {
-        return pool_htr_set_pnt.trim().equals("")?"0":pool_htr_set_pnt.trim();
+        return pool_htr_set_pnt;
     }
 
     public void setPool_htr_set_pnt(String pool_htr_set_pnt) {
@@ -96,7 +96,7 @@ public class AqualinkStatus {
     }
 
     public String getSpa_htr_set_pnt() {
-        return spa_htr_set_pnt.trim().equals("")?"0":spa_htr_set_pnt.trim();
+        return spa_htr_set_pnt;
     }
 
     public void setSpa_htr_set_pnt(String spa_htr_set_pnt) {
@@ -112,7 +112,7 @@ public class AqualinkStatus {
     }
 
     public String getFrz_protect_set_pnt() {
-        return frz_protect_set_pnt.trim().equals("")?"0":frz_protect_set_pnt.trim();
+        return frz_protect_set_pnt;
     }
 
     public void setFrz_protect_set_pnt(String frz_protect_set_pnt) {

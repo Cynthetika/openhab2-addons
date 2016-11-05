@@ -6,11 +6,11 @@ Bundle-Vendor: openHAB
 Bundle-Version: 2.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: .,
- lib/websocket-common-9.3.8.v20160314.jar,
- lib/websocket-client-9.3.8.v20160314.jar,
- lib/websocket-api-9.3.8.v20160314.jar,
- lib/jetty-io-9.3.8.v20160314.jar,
- lib/jetty-util-9.3.8.v20160314.jar
+ lib/websocket-common-9.2.12.v20150709.jar,
+ lib/websocket-client-9.2.12.v20150709.jar,
+ lib/websocket-api-9.2.12.v20150709.jar,
+ lib/jetty-io-9.2.12.v20150709.jar,
+ lib/jetty-util-9.2.12.v20150709.jar
 Import-Package: 
  com.google.gson,
  org.eclipse.smarthome.config.core,

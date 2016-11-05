@@ -3,10 +3,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry exported="true" kind="lib" path="lib/jetty-io-9.2.12.v20150709.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jetty-util-9.2.12.v20150709.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/websocket-common-9.2.12.v20150709.jar" sourcepath="/Users/sriram/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/websocket-api-9.2.12.v20150709.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/websocket-client-9.2.12.v20150709.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-io-9.3.8.v20160314.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-util-9.3.8.v20160314.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-common-9.3.8.v20160314.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-api-9.3.8.v20160314.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-client-9.3.8.v20160314.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
