@@ -25,6 +25,7 @@
 
     <feature name="openhab-binding-autelis" description="Autelis Binding" version="${project.version}">
         <feature>openhab-runtime-base</feature>
+        <feature>openhab-transport-upnp</feature>
         <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.autelis/${project.version}</bundle>
     </feature>
 
@@ -293,6 +294,7 @@
     <feature name="openhab-voice-voicerss" description="VoiceRSS Text-to-Speech" version="${project.version}">
         <feature>openhab-runtime-base</feature>
         <bundle start-level="80">mvn:org.openhab.voice/org.openhab.voice.voicerss/${project.version}</bundle>
+        <configfile finalname="${openhab.conf}/services/voicerss.cfg" override="false">mvn:${project.groupId}/openhab2-addons-external/${project.version}/cfg/voicerss</configfile>
     </feature>
 
     <!-- ui -->
