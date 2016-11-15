@@ -57,6 +57,7 @@
     <module>org.openhab.binding.vitotronic</module>
     <module>org.openhab.binding.yamahareceiver</module>
     <module>org.openhab.binding.aqualink</module>
+    <module>org.openhab.binding.connectsdk</module>
   </modules>
 
 </project>
