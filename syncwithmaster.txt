@@ -1,0 +1,4 @@
+  623  git fetch dev
+  624  git checkout master
+  625  git merge dev/master
+

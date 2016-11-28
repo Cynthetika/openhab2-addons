@@ -36,6 +36,7 @@ public class OnkyoBindingConstants {
     // List of thing parameters names
     public final static String HOST_PARAMETER = "ipAddress";
     public final static String TCP_PORT_PARAMETER = "port";
+    public final static String UDN_PARAMETER = "udn";
 
     // List of all Channel ids
     public final static String CHANNEL_POWER = "zone1#power";
@@ -48,6 +49,7 @@ public class OnkyoBindingConstants {
     public final static String CHANNEL_TITLE = "player#title";
     public final static String CHANNEL_ALBUM = "player#album";
     public final static String CHANNEL_LISTENMODE = "player#listenmode";
+    public static final String CHANNEL_PLAY_URI = "player#playuri";
     public final static String CHANNEL_POWERZONE2 = "zone2#power";
     public final static String CHANNEL_INPUTZONE2 = "zone2#input";
     public final static String CHANNEL_MUTEZONE2 = "zone2#mute";
