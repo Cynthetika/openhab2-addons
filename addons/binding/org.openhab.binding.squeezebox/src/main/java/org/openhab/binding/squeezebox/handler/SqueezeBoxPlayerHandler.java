@@ -107,35 +107,6 @@ public class SqueezeBoxPlayerHandler extends BaseThingHandler implements Squeeze
     public void initialize() {
         mac = getConfig().as(SqueezeBoxPlayerConfig.class).mac;
         timeCounter();
-        SqueezeBoxServerHandler bridgeHandler = getBridgeHandler();
-        if (bridgeHandler != null) {
-            logger.debug("updating player status to match server status of {}", bridgeHandler.getThing().getStatus());
-            updateStatus(bridgeHandler.getThing().getStatus());
-        }
-    }
-
-    private SqueezeBoxServerHandler getBridgeHandler() {
-        SqueezeBoxServerHandler bridgeHandler = null;
-        Thing bridge = getBridge();
-        if (bridge != null) {
-            bridgeHandler = (SqueezeBoxServerHandler) bridge.getHandler();
-        }
-        return bridgeHandler;
-    }
-
-    public void bridgeHandlerInitialized(ThingHandler thingHandler, Bridge bridge) {
-        if (thingHandler instanceof SqueezeBoxServerHandler) {
-            this.squeezeBoxServerHandler = (SqueezeBoxServerHandler) thingHandler;
-            updateStatus(ThingStatus.ONLINE);
-            logger.debug("bridgeHandlerInitialized: updating status of player {} to ONLINE", mac);
-        }
-    }
-
-    public void bridgeHandlerDisposed(ThingHandler thingHandler, Bridge bridge) {
-        // Mark the player OFFLINE
-        updateStatus(ThingStatus.OFFLINE);
-        this.squeezeBoxServerHandler = null;
-        logger.debug("bridgeHandlerDisposed: updating status of player {} to OFFLINE", mac);
         updateBridgeStatus();
     }
 
