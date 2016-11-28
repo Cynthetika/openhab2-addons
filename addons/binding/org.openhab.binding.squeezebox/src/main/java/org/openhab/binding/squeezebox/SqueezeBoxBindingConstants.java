@@ -48,6 +48,7 @@ public class SqueezeBoxBindingConstants {
     public final static String CHANNEL_YEAR = "year";
     public final static String CHANNEL_GENRE = "genre";
     public final static String CHANNEL_COVERART_DATA = "coverartdata";
+    public final static String CHANNEL_COVERART_URL = "coverarturl";
     public final static String CHANNEL_IRCODE = "ircode";
     public final static String CHANNEL_IP = "ip";
     public final static String CHANNEL_UID = "uid";

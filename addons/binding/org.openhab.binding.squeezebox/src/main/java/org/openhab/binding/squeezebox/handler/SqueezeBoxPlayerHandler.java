@@ -125,7 +125,6 @@ public class SqueezeBoxPlayerHandler extends BaseThingHandler implements Squeeze
         return bridgeHandler;
     }
 
-    @Override
     public void bridgeHandlerInitialized(ThingHandler thingHandler, Bridge bridge) {
         if (thingHandler instanceof SqueezeBoxServerHandler) {
             this.squeezeBoxServerHandler = (SqueezeBoxServerHandler) thingHandler;
@@ -134,7 +133,6 @@ public class SqueezeBoxPlayerHandler extends BaseThingHandler implements Squeeze
         }
     }
 
-    @Override
     public void bridgeHandlerDisposed(ThingHandler thingHandler, Bridge bridge) {
         // Mark the player OFFLINE
         updateStatus(ThingStatus.OFFLINE);
@@ -371,6 +369,7 @@ public class SqueezeBoxPlayerHandler extends BaseThingHandler implements Squeeze
         try {
             byte[] data = HttpUtils.getData(coverArtUrl);
             updateChannel(mac, CHANNEL_COVERART_DATA, new RawType(data));
+            updateChannel(mac, CHANNEL_COVERART_URL, new StringType(coverArtUrl));
         } catch (Exception e) {
             logger.debug("Coul not get album art data", e);
         }
