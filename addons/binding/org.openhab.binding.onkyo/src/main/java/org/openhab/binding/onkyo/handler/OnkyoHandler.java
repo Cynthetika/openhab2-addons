@@ -268,6 +268,7 @@ public class OnkyoHandler extends UpnpAudioSinkHandler implements OnkyoEventList
                 }
             }
 
+
             if (receivedCommand != null) {
                 switch (receivedCommand.getCommandRef()) {
                     case POWER_OFF:
@@ -309,7 +310,7 @@ public class OnkyoHandler extends UpnpAudioSinkHandler implements OnkyoEventList
                     case LISTEN_MODE_SET:
                         String listenModeStr = data.substring(3, 5);
                         // update only when listen mode is supported
-                        if (listenModeStr != "N/") {
+                        if (!listenModeStr.equals("N/")) {
                             int listenMode = Integer.parseInt(listenModeStr, 16);
                             updateState(CHANNEL_LISTENMODE, new DecimalType(listenMode));
                         }
